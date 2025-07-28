@@ -1,92 +1,99 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Face-GAN-TTS - Audio Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Face-GAN-TTS Demo</title>
   <style>
-    html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;background:#fff;color:#111}
-    main{max-width:900px;margin:0 auto;padding:2rem 1rem}
-    h1{text-align:center;margin-bottom:1.25rem;font-size:clamp(1.8rem,4vw,2.4rem)}
-    figure{margin:0 auto 2rem;display:flex;flex-direction:column;align-items:center;width:min(100%,480px)}
-    .spectrogram{width:100%;aspect-ratio:953/768;background:url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png") center/contain no-repeat;border:1px solid #ddd;border-radius:0.5rem}
-    figcaption{font-size:0.9rem;margin-top:0.5rem;color:#444;text-align:center}
-    .audio-block{margin:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:0.5rem}
-    audio{width:100%;max-width:480px;border-radius:0.5rem;background:rgba(255,255,255,0.85);padding:0.5rem}
-    section{margin-top:3rem}
-    h2{font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:0.75rem}
-    ul{padding-left:1.25rem}
-    li{margin-bottom:0.5rem}
-    a{color:#0658c2}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .spectrogram {
+      width: 50vw;
+      max-width: 480px;
+      aspect-ratio: 953/768;
+      margin: 2rem auto 0.5rem;
+      background-image: url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .caption {
+      margin-bottom: 2rem;
+      font-style: italic;
+      color: #333;
+    }
+
+    .audio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 0 2rem 2rem;
+      justify-items: center;
+    }
+
+    .audio-block {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .audio-block p {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
   </style>
 </head>
+
 <body>
-  <main>
-    <h1>Face-GAN-TTS: An Adversarial-Diffusion Framework for Generating High-Quality Voices from Faces</h1>
+  <h1>[Face-GAN-TTS] An Adversarial-Diffusion Framework for Generating High-Quality Voices from Faces</h1>
 
-    <!-- Mel-spectrogram figure -->
-    <figure>
-      <div class="spectrogram" role="img" aria-label="Vergleich verschiedener Trainingsvarianten im Mel-Spektrogramm"></div>
-      <figcaption>Abbildung 1: Mel-Spektrogrammvergleich – (a) Ground Truth, (b) Face-GAN-TTS, (c) FACE-TTS Scratch, (d) FACE-TTS Finetuned, (e) FACE-TTS LRS3-trainiert.</figcaption>
-    </figure>
+  <div class="spectrogram"></div>
+  <div class="caption">Mel-spectrogram visualization of Face-GAN-TTS and baselines</div>
 
-    <!-- Audio samples -->
+  <div class="audio-grid">
     <div class="audio-block">
-      <strong>(b) Face-GAN-TTS</strong>
+      <p>(b) Face-GAN-TTS</p>
       <audio controls>
-        <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav" />
-        Dein Browser unterstützt das <code>audio</code>-Element nicht.
+        <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
+        Your browser does not support the audio element.
       </audio>
     </div>
 
     <div class="audio-block">
-      <strong>(c) FACE-TTS Scratch</strong>
+      <p>(c) FACE-TTS Scratch</p>
       <audio controls>
-        <source src="demo_files/FACETTS_scratch_spk1263_00003.wav" type="audio/wav" />
-        Dein Browser unterstützt das <code>audio</code>-Element nicht.
+        <source src="demo_files/FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
+        Your browser does not support the audio element.
       </audio>
     </div>
 
     <div class="audio-block">
-      <strong>(d) FACE-TTS Finetuned</strong>
+      <p>(d) FACE-TTS Finetuned</p>
       <audio controls>
-        <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav" />
-        Dein Browser unterstützt das <code>audio</code>-Element nicht.
+        <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
+        Your browser does not support the audio element.
       </audio>
     </div>
 
     <div class="audio-block">
-      <strong>(e) FACE-TTS trainiert auf LRS3</strong>
+      <p>(e) FACE-TTS trained on LRS3</p>
       <audio controls>
-        <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav" />
-        Dein Browser unterstützt das <code>audio</code>-Element nicht.
+        <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
+        Your browser does not support the audio element.
       </audio>
     </div>
-
-    <!-- Ethical considerations -->
-    <section id="ethics">
-      <h2>Ethical Considerations</h2>
-      <ul>
-        <li><strong>Datenschutz&nbsp;&amp;&nbsp;Einwilligung:</strong> Alle abgebildeten Gesichter stammen aus öffentlich verfügbaren Forschungsdatenbanken, die eine Nutzung zu Demonstrations- und Forschungszwecken erlauben.</li>
-        <li><strong>Deep-Fake Risiken:</strong> Die Technik kann potenziell zur Irreführung eingesetzt werden. Daher ist jede generierte Stimme inhaltlich gekennzeichnet und nicht dazu bestimmt, reale Personen zu imitieren.</li>
-        <li><strong>Bias & Fairness:</strong> Wir evaluieren das Modell auf dem Chicago Face Database, um Verzerrungen im Hinblick auf Geschlecht, Alter und Ethnie transparent zu machen – siehe Bericht im <a href="https://github.com/degiaaaa/facetts-optimizer">Projekt Repo</a>.</li>
-        <li><strong>Responsible Release:</strong> Audio- und Bilddaten werden ausschließlich für wissenschaftliche Reproduktionen bereitgestellt – keine kommerzielle Verwendung ohne ausdrückliche Genehmigung.</li>
-      </ul>
-    </section>
-
-    <!-- References -->
-    <section id="references">
-      <h2>Genutzte Projekte &amp; Zitationen</h2>
-      <ul>
-        <li>Lee et al., “<em>FACE-TTS: Imaginary Voice – Face-Styled Diffusion Model for Text-to-Speech</em>,” ICASSP 2023. <a href="https://facetts.github.io">Projektseite</a></li>
-        <li>Kong et al., “<em>HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis</em>,” NeurIPS 2020.</li>
-        <li>Ko et al., “<em>SpecDiff-GAN: Spectrogram-based Diffusion GAN for Speech Enhancement</em>,” arXiv 2024.</li>
-        <li>Chicago Face Database (CFD) – Ma et al., 2015.</li>
-        <li>Afouras et al., “LRS2 & LRS3 Audio-Visual Speech Recognition Datasets,” 2018.</li>
-      </ul>
-      <p>Der vollständige Quellcode dieser Demo ist auf <a href="https://github.com/degiaaaa/facetts-optimizer">GitHub</a> verfügbar.</p>
-    </section>
-
-  </main>
+  </div>
 </body>
 </html>

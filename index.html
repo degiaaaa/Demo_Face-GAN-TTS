@@ -6,21 +6,13 @@
 </head>
 <!-- add this block inside <head> -->
 <style>
-  body::before{
-  content:"";
-  position:fixed; /* keeps it stuck to viewport */              /* :contentReference[oaicite:0]{index=0} */
-  inset:0;
-  background:url('demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png') /* ← Pfad ggf. anpassen */
-             center/cover no-repeat;                              /* :contentReference[oaicite:1]{index=1} */
-  z-index:-1; /* stays behind all other elements */
-}
-
+  
   /* Layout reset */
   html,body{height:100%;margin:0;}
 
   /* Mel‑spectrogram background */
   body{
-    background:url('demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png') center/cover no-repeat fixed;
+    background:url('demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.pdf') center/cover no-repeat fixed;
   }
 
   /* Centered, translucent audio controls */
@@ -35,7 +27,7 @@
 
 
 <body>
-  <h1>Play Sound</h1>
+  <h1>[Face-GAN-TTS] An Adversarial-Diffusion Framework for Generating High-Quality Voices from Faces</h1>
 
 
 

@@ -7,9 +7,41 @@
 <body>
   <h1>Play Sound</h1>
 
-  <p>Click to play:</p>
+  <!-- <p>Click to play:</p>
   <audio controls>
     <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
+    <source src="FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
+     <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
+    <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
+  </audio> -->
+
+   <audio id="gt"  class="audio‑overlay" controls preload="none">
+    <source src="audio/GroundTruth_spk1263_00003.wav" type="audio/wav">
+    Your browser does not support the <code>audio</code> element.  
+  </audio>
+
+  <!-- (b) Face‑GAN‑TTS -->
+  <audio id="gan" class="audio‑overlay" controls preload="none">
+    <source src="audio/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+
+  <!-- (c) FACE‑TTS Scratch -->
+  <audio id="scratch" class="audio‑overlay" controls preload="none">
+    <source src="audio/FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+
+  <!-- (d) FACE‑TTS Finetuned -->
+  <audio id="finetune" class="audio‑overlay" controls preload="none">
+    <source src="audio/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+
+  <!-- (e) FACE‑TTS trained on LRS3 -->
+  <audio id="lrs3" class="audio‑overlay" controls preload="none">
+    <source src="audio/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
+    Your browser does not support the <code>audio</code> element.
   </audio>
 
 </body>

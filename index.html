@@ -33,16 +33,14 @@
       <figcaption>Figure&nbsp;1: Mel-spectrogram comparison – (a) Ground Truth, (b) Face-GAN-TTS, (c) FACE-TTS Scratch, (d) FACE-TTS Finetuned, (e) FACE-TTS trained on LRS3.</figcaption>
     </figure>
 
-    <!-- Condition descriptions -->
     <div id="conditions">
-      <h2>Condition Details</h2>
-      <ol>
+      <ul>
         <li><strong>(a) Ground Truth</strong>: Reference recording of natural human speech.</li>
         <li><strong>(b) FACE-GAN-TTS</strong>: Generator pretrained on LRS3; full GAN setup finetuned on LRS2 with adversarial learning (learning rate <code>1e-8</code>).</li>
         <li><strong>(c) FACE-TTS Scratch</strong>: Baseline FACE-TTS (Lee&nbsp;<em>et&nbsp;al.</em>, 2023) trained from scratch on LRS2, no adversarial learning (adversarial-loss weight 0.7, learning rate <code>1e-4</code>).</li>
         <li><strong>(d) FACE-TTS Finetuned</strong>: Baseline FACE-TTS pretrained on LRS3 and finetuned on LRS2 without GAN (learning rate <code>1e-8</code>).</li>
         <li><strong>(e) FACE-TTS LRS3-only</strong>: Published baseline FACE-TTS by Lee&nbsp;<em>et&nbsp;al.</em> (2023) trained exclusively on LRS3 (learning rate <code>1e-4</code>, speaker weight γ&nbsp;=&nbsp;0.01).</li>
-      </ol>
+      </ul>
     </div>
 
     <!-- Audio samples -->

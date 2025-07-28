@@ -3,41 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>Audio Playback</title>
+
+  <!-- Minimal hinzugefügtes Styling -->
+  <style>
+    /* Hintergrund: Mel‑Spektrogramm */
+    body {
+      margin: 0;
+      background-image: url('mel_spec.png');      /* Pfad ggf. anpassen */
+      background-size: cover;                     /* skaliert auf Vollbild — MDN empfiehlt »cover« :contentReference[oaicite:0]{index=0} */
+      background-repeat: no-repeat;               /* kein Kacheln :contentReference[oaicite:1]{index=1} */
+      background-position: center center;         /* Bild zentrieren :contentReference[oaicite:2]{index=2} */
+
+      /* Zentrierung des Inhalts */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Überschrift mit leichter Kontur für Lesbarkeit */
+    h1{
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,.7);
+      margin-bottom: 1rem;
+    }
+
+    /* Glas‑Effekt für die Player‑Box */
+    .player-wrapper{
+      backdrop-filter: blur(3px);
+      background: rgba(0,0,0,.25);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Einheitliche Breite der Controls (optional) */
+    audio{
+      width: 320px;
+    }
+  </style>
 </head>
 <body>
   <h1>Play Sound</h1>
 
-  <!-- <p>Click to play:</p>
-  <audio controls>
-    <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
-    <source src="FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
-     <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
-    <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
-  </audio> -->
+  <!-- neue Wrapper-DIV -->
+  <div class="player-wrapper">
 
-  <!-- (b) Face‑GAN‑TTS -->
-  <audio controls>
-    <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
-    Your browser does not support the <code>audio</code> element.
-  </audio>
+    <!-- (b) Face‑GAN‑TTS -->
+    <audio controls>
+      <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
 
-  <!-- (c) FACE‑TTS Scratch -->
-  <audio controls>
-    <source src="demo_files/FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
-    Your browser does not support the <code>audio</code> element.
-  </audio>
+    <!-- (c) FACE‑TTS Scratch -->
+    <audio controls>
+      <source src="demo_files/FACETTS_scratch_spk1263_00003.wav" type="audio/wav">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
 
-  <!-- (d) FACE‑TTS Finetuned -->
-  <audio controls>
-    <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
-    Your browser does not support the <code>audio</code> element.
-  </audio>
+    <!-- (d) FACE‑TTS Finetuned -->
+    <audio controls>
+      <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
 
-  <!-- (e) FACE‑TTS trained on LRS3 -->
-  <audio controls>
-    <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
-    Your browser does not support the <code>audio</code> element.
-  </audio>
+    <!-- (e) FACE‑TTS trained on LRS3 -->
+    <audio controls>
+      <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
 
+  </div>
 </body>
 </html>

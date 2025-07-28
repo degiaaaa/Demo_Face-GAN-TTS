@@ -8,14 +8,23 @@
 <style>
   html,body{height:100%;margin:0;}
 
-  /* Bild als Hintergrund */
+  /* Wird nun NUR noch für den Seiten‑Hintergrund benutzt */
   body{
-    background-image: url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png");
-    background-position: center;
-    background-size: 50% auto; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background:#fff;              /* neutraler Hintergrund */
   }
+
+  /* NEU: Container für das Bild ------------- */
+  .spectrogram{
+    width:50vw;                   /* genau halb so breit wie das Viewport */
+    max-width:480px;              /* optionales Hard‑Limit */
+    aspect-ratio:953/768;         /* Seitenverhältnis des PNGs */
+    margin:0 auto 1rem;           /* zentriert + Abstand nach unten */
+    background-image:url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png");
+    background-size:contain;      /* Bild vollständig sichtbar */
+    background-repeat:no-repeat;
+    background-position:center;
+  }
+  /* ----------------------------------------- */
 
   /* Audio‑Player */
   audio{

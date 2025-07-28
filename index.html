@@ -6,18 +6,20 @@
 </head>
 <!-- add this block inside <head> -->
 <style>
-  
-  /* Layout reset */
   html,body{height:100%;margin:0;}
 
-  /* Mel‑spectrogram background */
+  /* Bild als Hintergrund */
   body{
-    background:url('demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png') center/cover no-repeat fixed;
+    background-image: url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
-  /* Centered, translucent audio controls */
+  /* Audio‑Player */
   audio{
-    display:block; 
+    display:block;
     margin:1rem auto;
     background:rgba(255,255,255,0.85);
     padding:0.5rem;

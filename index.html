@@ -5,19 +5,31 @@
   <title>Face-GAN-TTS – Audio Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;background:#fff;color:#111}
+    html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;background:#fff;color:#111}
     main{max-width:1000px;margin:0 auto;padding:2rem 1rem}
-    h1{text-align:center;margin-bottom:1.25rem;font-size:clamp(1.8rem,4vw,2.4rem)}
+    h1{text-align:center;margin-bottom:0.5rem;font-size:clamp(1.8rem,4vw,2.4rem)}
+    #metadata{font-size:0.95rem;text-align:center;margin-bottom:2rem;color:#444}
+    #metadata p{margin:0.2rem 0}
+
     figure{margin:0 auto 1.75rem;display:flex;flex-direction:column;align-items:center;width:min(100%,640px)}
     .spectrogram{width:100%;aspect-ratio:953/768;background:url("./demo_files/compare_gt_gan_scratch_finetune_2x2_spk1263_00003.png") center/contain no-repeat;border:1px solid #ddd;border-radius:0.5rem}
     figcaption{font-size:0.9rem;margin-top:0.5rem;color:#444;text-align:center}
+
+    #abstract{max-width:750px;margin:0 auto 2.5rem}
+    #abstract h2{margin-top:0;font-size:1.4rem}
+    #abstract p{margin:0 0 1rem 0;text-align:justify}
+    #keywords{font-style:italic;margin-top:-0.5rem;font-size:0.9rem}
+
     #conditions{max-width:640px;margin:0 auto 2rem;font-size:0.95rem;color:#222}
-    #conditions ol{padding-left:1.25rem}
+    #conditions ul{padding-left:0;list-style-type:none}
     #conditions li{margin-bottom:0.75rem}
+
     .audio-block{margin:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:0.5rem}
     audio{width:100%;max-width:640px;border-radius:0.5rem;background:rgba(255,255,255,0.85);padding:0.5rem}
+
     section{margin-top:3rem}
     h2{font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:0.75rem}
+
     ul{padding-left:1.25rem}
     li{margin-bottom:0.5rem}
     a{color:#0658c2}
@@ -27,25 +39,46 @@
   <main>
     <h1>Face-GAN-TTS: An Adversarial-Diffusion Framework for Generating High-Quality Voices from Faces</h1>
 
+    <!-- Author & affiliation -->
+    <div id="metadata">
+      <p><strong>Deborah Guaia</strong></p>
+      <p>Cognitive Modeling Group, Wilhelm‑Schickard Institute for Computer Science, University of Tübingen</p>
+      <p><time datetime="2025-07-28">July&nbsp;28, 2025</time></p>
+      <p><em>Reviewers:</em> Prof.&nbsp;Dr.&nbsp;Martin Butz &nbsp;|&nbsp; Prof.&nbsp;Dr.&nbsp;Felix Wichmann</p>
+      <p><em>Supervisor:</em> Dr.&nbsp;Christian Gumbsch</p>
+    </div>
+
+    <!-- Abstract -->
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>Face‑conditioned text‑to‑speech (TTS) models open new perspectives for cognitive‑science experiments but still suffer from audible noise and limited quality. While the diffusion model FACE‑TTS can generate voice‑specific prosody from a single portrait and text, it produces scratchy artifacts that hinder fine‑grained perception studies.</p>
+      <p>This thesis tackles these limitations by improving the baseline via adversarial training. We introduce <strong>Face‑GAN‑TTS</strong>, which fine‑tunes FACE‑TTS with a spectral hinge‑loss discriminator. Training uses 23 440 labeled LRS2 utterances, and evaluation is conducted on LRS2 as well as out‑of‑domain portraits from the Chicago Face Database.</p>
+      <p>Forty‑five participants listened to ten audio samples each from Face‑GAN‑TTS and FACE‑TTS. The mean‑opinion score (MOS) for perceived quality rises significantly for Face‑GAN‑TTS—from 2.88 to 3.19 on LRS2 faces and from 2.30 to 2.56 on CFD faces—while perceived scratchiness drops by ~0.7 MOS points. Fine‑grained spectral analysis shows marginally lower broadband noise and slightly closer spectra to real recordings; pitch accuracy and speaker similarity remain stable.</p>
+      <p>Adversarial fine‑tuning thus reduces noise and boosts audible quality. Ablation studies indicate that the cross‑modal biometric encoder may leverage background noise as identity cues, suggesting imperfect face–voice alignment. Nevertheless, Face‑GAN‑TTS delivers clear, low‑noise voices from portrait and text alone, laying a foundation for perception‑critical, multimodal TTS research.</p>
+      <p id="keywords"><strong>Keywords:</strong> Face‑conditioned TTS; Diffusion Speech Synthesis; Adversarial Fine‑Tuning; Spectrogram Discriminator; Cross‑modal Biometrics; MOS; LRS2; Chicago Face Database; Speech Quality; Cognitive‑Science Experiments; Noise Suppression.</p>
+    </section>
+
     <!-- Mel-spectrogram figure -->
     <figure>
       <div class="spectrogram" role="img" aria-label="Comparison of different training variants in the Mel spectrogram"></div>
-      <figcaption>Figure&nbsp;1: Mel-spectrogram comparison – (a) Ground Truth, (b) Face-GAN-TTS, (c) FACE-TTS Scratch, (d) FACE-TTS Finetuned, (e) FACE-TTS trained on LRS3.</figcaption>
+      <figcaption>Figure&nbsp;1: Mel‑spectrogram comparison – (a) Ground Truth, (b) Face‑GAN‑TTS, (c) FACE‑TTS Scratch, (d) FACE‑TTS Finetuned, (e) FACE‑TTS trained on LRS3.</figcaption>
     </figure>
 
+    <!-- Condition descriptions -->
     <div id="conditions">
+      <h2>Condition Details</h2>
       <ul>
         <li><strong>(a) Ground Truth</strong>: Reference recording of natural human speech.</li>
-        <li><strong>(b) FACE-GAN-TTS</strong>: Generator pretrained on LRS3; full GAN setup finetuned on LRS2 with adversarial learning (learning rate <code>1e-8</code>).</li>
-        <li><strong>(c) FACE-TTS Scratch</strong>: Baseline FACE-TTS (Lee&nbsp;<em>et&nbsp;al.</em>, 2023) trained from scratch on LRS2, no adversarial learning (adversarial-loss weight 0.7, learning rate <code>1e-4</code>).</li>
-        <li><strong>(d) FACE-TTS Finetuned</strong>: Baseline FACE-TTS pretrained on LRS3 and finetuned on LRS2 without GAN (learning rate <code>1e-8</code>).</li>
-        <li><strong>(e) FACE-TTS LRS3-only</strong>: Published baseline FACE-TTS by Lee&nbsp;<em>et&nbsp;al.</em> (2023) trained exclusively on LRS3 (learning rate <code>1e-4</code>, speaker weight γ&nbsp;=&nbsp;0.01).</li>
+        <li><strong>(b) FACE‑GAN‑TTS</strong>: Generator pretrained on LRS3; full GAN setup finetuned on LRS2 with adversarial learning (learning rate <code>1e‑8</code>).</li>
+        <li><strong>(c) FACE‑TTS Scratch</strong>: Baseline FACE‑TTS (Lee <em>et al.</em>, 2023) trained from scratch on LRS2, no adversarial learning (adversarial‑loss weight 0.7, learning rate <code>1e‑4</code>).</li>
+        <li><strong>(d) FACE‑TTS Finetuned</strong>: Baseline FACE‑TTS pretrained on LRS3 and finetuned on LRS2 without GAN (learning rate <code>1e‑8</code>).</li>
+        <li><strong>(e) FACE‑TTS LRS3‑only</strong>: Published baseline FACE‑TTS by Lee <em>et al.</em> (2023) trained exclusively on LRS3 (learning rate <code>1e‑4</code>, speaker weight γ = 0.01).</li>
       </ul>
     </div>
 
     <!-- Audio samples -->
     <div class="audio-block">
-      <strong>(b) Face-GAN-TTS</strong>
+      <strong>(b) Face‑GAN‑TTS</strong>
       <audio controls>
         <source src="demo_files/FACEGANTTS_spk1263_00003.wav" type="audio/wav" />
         Your browser does not support the audio element.
@@ -53,7 +86,7 @@
     </div>
 
     <div class="audio-block">
-      <strong>(c) FACE-TTS Scratch</strong>
+      <strong>(c) FACE‑TTS Scratch</strong>
       <audio controls>
         <source src="demo_files/FACETTS_scratch_spk1263_00003.wav" type="audio/wav" />
         Your browser does not support the audio element.
@@ -61,7 +94,7 @@
     </div>
 
     <div class="audio-block">
-      <strong>(d) FACE-TTS Finetuned</strong>
+      <strong>(d) FACE‑TTS Finetuned</strong>
       <audio controls>
         <source src="demo_files/FACETTS_finetuned_spk1263_00003.wav" type="audio/wav" />
         Your browser does not support the audio element.
@@ -69,7 +102,7 @@
     </div>
 
     <div class="audio-block">
-      <strong>(e) FACE-TTS trained on LRS3</strong>
+      <strong>(e) FACE‑TTS trained on LRS3</strong>
       <audio controls>
         <source src="demo_files/FACETTS_LRS3_ONLY_spk1263_00003.wav" type="audio/wav" />
         Your browser does not support the audio element.
@@ -81,7 +114,7 @@
       <h2>Ethical Considerations</h2>
       <ul>
         <li><strong>Privacy &amp; Consent:</strong> All faces originate from publicly available research datasets that permit demonstration and research use.</li>
-        <li><strong>Deepfake Risks:</strong> The technology could be misused for deception. Every generated voice is water-marked and is <em>not</em> intended to impersonate real people.</li>
+        <li><strong>Deepfake Risks:</strong> The technology could be misused for deception. Every generated voice is water‑marked and is <em>not</em> intended to impersonate real people.</li>
         <li><strong>Bias &amp; Fairness:</strong> We evaluate the model on the Chicago Face Database to expose potential biases with respect to gender, age, and ethnicity—see the report in the <a href="https://github.com/degiaaaa/facetts-optimizer">project repository</a>.</li>
         <li><strong>Responsible Release:</strong> Audio and image data are provided solely for scientific reproduction—no commercial use without explicit permission.</li>
       </ul>
@@ -91,6 +124,15 @@
     <section id="references">
       <h2>Referenced Projects &amp; Citations</h2>
       <ul>
-        <li>Lee <em>et al.</em>, “<em>FACE-TTS: Imaginary Voice – Face-Styled Diffusion Model for Text-to-Speech</em>,” ICASSP 2023. <a href="https://facetts.github.io">Project page</a></li>
-        <li>Kong <em>et al.</em>, “<em>HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis</em>,” NeurIPS 2020.</li>
-        <li>Ko <em>et al.</em>, “<em>SpecDiff-GAN: Spectrogram-based Diffusion GAN for Speech Enhancement</em>,” arXiv 2024.</li>
+        <li>Lee <em>et al.</em> ("<em>FACE‑TTS: Imaginary Voice – Face‑Styled Diffusion Model for Text‑to‑Speech</em>", ICASSP 2023). <a href="https://facetts.github.io">Project page</a></li>
+        <li>Kong <em>et al.</em>, "<em>HiFi‑GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis</em>", NeurIPS 2020.</li>
+        <li>Ko <em>et al.</em>, "<em>SpecDiff‑GAN: Spectrogram‑based Diffusion GAN for Speech Enhancement</em>", arXiv 2024.</li>
+        <li>Chicago Face Database (CFD) – Ma <em>et al.</em>, 2015.</li>
+        <li>Afouras <em>et al.</em>, "LRS2 &amp; LRS3 Audio‑Visual Speech Recognition Datasets", 2018.</li>
+      </ul>
+      <p>The full source code for this demo is available on <a href="https://github.com/degiaaaa/facetts-optimizer">GitHub</a>.</p>
+    </section>
+
+  </main>
+</body>
+</html>

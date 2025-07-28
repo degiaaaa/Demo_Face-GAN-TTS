@@ -51,36 +51,25 @@
     <!-- Abstract -->
     <section id="abstract">
       <h2>Abstract</h2>
-      <p>Face-conditioned text-to-speech models open new perspectives for cognitive science
-experiments, but so far suffer from audible noise and limited quality. While the
-diffusion model FACE-TTS produces voice-specific prosody from a single portrait
-and text, it also creates scratchy artifacts and background noise that complicate
-fine-grained perception studies.
-The thesis focuses on overcoming these limitations by improving the FACE-TTS
-model using adversarial training. To this end, Face-GAN-TTS is presented, a
-system that fine-tunes the baseline diffusion model using a spectral hinge-loss dis-
-criminator. Training is performed on 23 440 labeled LRS2 utterances. To assess
-the quality of voice generated based on faces, a listening study and voice analyzes
-were conducted. Evaluation is carried out on LRS2 and on out-of-domain portraits
-from the Chicago Face Database.
-Forty-five participants each listened to ten audio samples from Face-GAN-TTS
-and FACE-TTS. The mean opinion score (MOS) for perceived quality increases
-statistically significantly for Face-GAN-TTS compared to the baseline FACE-TTS.
-The quality rises from 2.88 to 3.19 on LRS2 faces and from 2.30 to 2.56 on CFD
-faces. At the same time, perceived scratchiness decreases for Face-GAN-TTS sta-
-tistically significantly by about 0.7 MOS points for both domains. Moreover, the
-fine-grained spectrum of the generated speech is a bit closer to the real recording
-(1.041 vs. 1.038). Pitch accuracy is also more similar to the ground truth for Face-
-GAN-TTS than for FACE-TTS (0.380 vs. 0.374). The broad timbre shifts slightly
-(7.82 to 8.14), while the speaker identity similarity remain almost unchanged (0.999
-and 0.998).
-The adversarial fine-tuning reduces broadband noise and increases audible voice
-quality. However, ablation studies suggest that the underlying cross-modal bio-
-metric model uses background noise as identity cues, that means the speaker em-
-beddings may not always perfectly match the face and voice. Nevertheless, Face-
-GAN-TTS produces clear, low-noise voices using only face and text. This serves
-as a foundation for low-effort perception studies and high-quality, multimodal and
-face-based TTS research.</p>
+      <p>Face-conditioned text-to-speech (TTS) models open new perspectives for cognitive science experiments, but so far suffer from audible noise and limited quality.  
+While the diffusion model FACE-TTS produces voice-specific prosody from a portrait and text, it also creates noisy artifacts that complicate fine-grained perception studies.</p>
+
+<p> This thesis focuses on overcoming these limitations by improving FACE-TTS using an adversarial approach.
+To this end, Face-GAN-TTS is presented, a system that optimizes the baseline model using a spectral discriminator.
+To assess the quality of the generated voices, a listening study and voice analyzes are conducted. 
+Evaluation is carried out on LRS2 and out-of-domain faces from the Chicago Face Database. </p>
+
+<p> Forty-five participants each listened to ten audio samples from Face-GAN-TTS and FACE-TTS. 
+The mean opinion score (MOS) for perceived quality increases statistically significantly for Face-GAN-TTS compared to the baseline. 
+The quality rises from 2.88 to 3.19 on LRS2 and from 2.30 to 2.56 on CFD faces. 
+At the same time, perceived scratchiness decreases for Face-GAN-TTS statistically significantly by about 0.7 MOS points for both domains. 
+Overall, Face-GAN-TTS reduces noise and increases voice quality. </p>
+
+<p>  However, ablation studies suggest that the underlying cross-modal biometric model uses background noise as identity cues, 
+that means the speaker embeddings may not match the face and voice. 
+%Nevertheless, Face-GAN-TTS delivers high-quality, low-noise voices from portrait and text alone for perception-critical lab settings, laying another foundation for robust, artifact-free multi modal, face-conditioned TTS research.
+Nevertheless, Face-GAN-TTS produces clear, low-noise voices using only faces and text. 
+This serves as a foundation for low-effort perception studies and multimodal research.</p>
     </section>
 
     <!-- Mel-spectrogram figure -->
@@ -91,7 +80,6 @@ face-based TTS research.</p>
 
     <!-- Condition descriptions -->
     <div id="conditions">
-      <h2>Condition Details</h2>
       <ul>
         <li><strong>(a) Ground Truth</strong>: Reference recording of natural human speech.</li>
         <li><strong>(b) FACE‑GAN‑TTS</strong>: Generator pretrained on LRS3; full GAN setup finetuned on LRS2 with adversarial learning (learning rate <code>1e‑8</code>).</li>

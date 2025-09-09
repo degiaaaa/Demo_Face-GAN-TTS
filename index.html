@@ -66,22 +66,18 @@ science experiments, but so far suffer from audible noise and limited quality. W
 the diffusion model FACE-TTS produces voice-specific prosody from a portrait and
 text, it also creates noisy artifacts that complicate fine-grained perception studies.</p>
 <p> This thesis focuses on overcoming these limitations by improving FACE-TTS
-using an adversarial approach. To this end, Face-GAN-TTS is presented, a sys-
-tem that optimizes the baseline model using a spectral discriminator. To assess
-the quality of the generated voices, a listening study and voice analyses are con-
-ducted. Training is conducted on 7,358 labeled speakers from the LRS2 dataset.
+using an adversarial approach. To this end, Face-GAN-TTS is presented, a system that optimizes the baseline model using a spectral discriminator. To assess
+the quality of the generated voices, a listening study and voice analyses are conducted. Training is conducted on 7,358 labeled speakers from the LRS2 dataset.
 Evaluation is carried out on LRS2 and out-of-domain faces from the Chicago Face
 Database (CFD).</p>
 <p> Forty-five participants each listened to ten audio samples from Face-GAN-TTS
-and FACE-TTS. The mean opinion score (MOS) for perceived quality increases sta-
-tistically significantly for Face-GAN-TTS compared to baseline. The quality rises
+and FACE-TTS. The mean opinion score (MOS) for perceived quality increases statistically significantly for Face-GAN-TTS compared to baseline. The quality rises
 from 2.88 to 3.19 on LRS2 and from 2.30 to 2.56 on CFD faces. At the same time,
 perceived ”scratchiness“ decreases for Face-GAN-TTS statistically significantly by
 about 0.7 MOS points for both domains. In general, Face-GAN-TTS reduces noise
 and increases voice quality.</p>
 <p> However, ablation studies suggest that the underlying cross-modal biometric
-model uses background noise as identity cues. This means that speaker embed-
-dings may not match the face and voice. Nevertheless, Face-GAN-TTS produces
+model uses background noise as identity cues. This means that speaker embeddings may not match the face and voice. Nevertheless, Face-GAN-TTS produces
 clear, low-noise voices using only faces and text. This serves as a basis for low-
 effort perception studies and multimodal research.</p>
     </section>
